@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />
+    <Main :comics="comics" />
+    <SectionBlu />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Footer from './components/Footer.vue';
+import Header from './components/Header.vue';
+import SectionBlu from './components/SectionBlu.vue';
+import Main from './components/Main.vue';
+import comicsJson from './jsons/dc-comics.json';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Header,
+    Main,
+    SectionBlu,
+    Footer,
+  },
+  data: function() {
+    return {
+      comics: comicsJson,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './style/app.scss';
 </style>
